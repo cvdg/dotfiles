@@ -13,7 +13,8 @@ license:
 tags: [dotfiles]
 
 dependencies:
-  ansible.posix: ">=1.6.2"
+  ansible.posix: ">= 1.6.2"
+  community.general: ">= 10.0.1"
 
 repository: https://gitlab.com/ceesvandegriend/dotfiles
 documentation: https://gitlab.com/ceesvandegriend/dotfiles

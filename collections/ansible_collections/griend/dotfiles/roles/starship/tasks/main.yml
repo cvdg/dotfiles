@@ -1,0 +1,22 @@
+---
+- name: Install packages
+  ansible.builtin.apt:
+    name: '{{ starship_packages }}'
+    state: present
+
+- name: 'Install starship'
+  ansible.builtin.shell:
+    cmd: '/home/{{ dotfiles_user }}/.cargo/bin/cargo install starship'
+  register: result
+
+- name: Display result
+  ansible.builtin.debug:
+    var: result
+
+- name: ~/.config/starship.toml
+  ansible.builtin.template:
+    src: starship.toml.j2
+    dest: '/home/{{ dotfiles_user }}/.config/starship.toml'
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0644'

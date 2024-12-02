@@ -1,0 +1,27 @@
+---
+- name: Remove packages
+  ansible.builtin.apt:
+    name:
+      - rustc
+      - cargo
+    state: absent
+
+- name: Download installer
+  ansible.builtin.get_url:
+    url: 'https://sh.rustup.rs'
+    dest: '/tmp/rustup-init.sh'
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0755'
+  register: download
+
+- name: Execute installer
+  ansible.builtin.command:
+    cmd: '/tmp/rustup-init.sh -y'
+  become_user: '{{ dotfiles_user }}'
+  when: download.changed
+  register: result
+
+- name: Display result
+  ansible.builtin.debug:
+    var: result
