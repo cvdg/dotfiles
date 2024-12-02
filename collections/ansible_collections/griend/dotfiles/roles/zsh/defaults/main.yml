@@ -1,3 +1,4 @@
 ---
 zsh_packages:
+  - fortunes
   - zsh

@@ -1,0 +1,13 @@
+---
+- name: Install dotfiles playbook
+  hosts: all
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Apt autoremove
+      ansible.builtin.apt:
+        upgrade: full
+        update_cache: true
+        autoremove: true
+        autoclean: true

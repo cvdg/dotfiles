@@ -13,12 +13,4 @@
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
     mode: '0755'
-  register: download
-
-- name: Execute installer
-  ansible.builtin.command:
-    cmd: '/tmp/rustup-init.sh -y'
-    creates: '/home/{{ dotfiles_user }}/.cargo/bin/cargo'
-  become_user: '{{ dotfiles_user }}'
-  become: true
-  when: download.changed
+  notify: Execute installer

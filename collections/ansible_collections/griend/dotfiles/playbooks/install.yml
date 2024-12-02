@@ -12,9 +12,11 @@
 
   roles:
     - griend.dotfiles.git
+    - griend.dotfiles.hushlogin
     - griend.dotfiles.local
     - griend.dotfiles.rust
     - griend.dotfiles.ssh
     - griend.dotfiles.starship
     - griend.dotfiles.sudo
+    - griend.dotfiles.tmux
     - griend.dotfiles.zsh

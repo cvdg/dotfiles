@@ -1,0 +1,7 @@
+---
+- name: Execute installer
+  ansible.builtin.command:
+    cmd: '/tmp/rustup-init.sh -y'
+    creates: '/home/{{ dotfiles_user }}/.cargo/bin/cargo'
+  become_user: '{{ dotfiles_user }}'
+  become: true

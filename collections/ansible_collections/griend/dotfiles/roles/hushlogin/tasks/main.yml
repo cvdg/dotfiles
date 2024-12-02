@@ -1,0 +1,8 @@
+---
+- name: Create ~/.hushlogin
+  ansible.builtin.file:
+    path: '/home/{{ dotfiles_user }}/.hushlogin'
+    state: touch
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0644'
