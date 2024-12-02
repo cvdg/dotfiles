@@ -1,0 +1,19 @@
+---
+- name: Install packages
+  ansible.builtin.apt:
+    name: '{{ sudo_packages }}'
+    state: present
+
+- name: Group adm
+  ansible.builtin.user:
+    name: '{{ dotfiles_user }}'
+    groups: adm
+    append: true
+
+- name: /etc/sudoers.d/adm
+  ansible.builtin.template:
+    src: adm.j2
+    dest: /etc/sudoers.d/adm
+    owner: root
+    group: root
+    mode: '0600'

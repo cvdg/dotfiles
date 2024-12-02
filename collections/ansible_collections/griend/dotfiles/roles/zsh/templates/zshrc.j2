@@ -1,0 +1,11 @@
+export ZSHD_DEBUG=0
+# export ZSHD_DEBUG=1
+
+for Z in ${ZDOTDIR}/[0123456789][0123456789]-*.zsh ; do
+    if [ -f ${Z} ] ; then
+        if [ ${ZSHD_DEBUG} -gt 0 ] ; then
+            echo "Source: ${Z}"
+        fi
+        source ${Z}
+    fi
+done

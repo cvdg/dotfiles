@@ -1,0 +1,21 @@
+---
+- name: Install packages
+  ansible.builtin.apt:
+    name: '{{ local_packages }}'
+    state: present
+
+- name: ~/.local/
+  ansible.builtin.file:
+    name: '/home/{{ dotfiles_user }}/.local'
+    state: directory
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0700'
+
+- name: ~/.local/bin/
+  ansible.builtin.file:
+    name: '/home/{{ dotfiles_user }}/.local/bin'
+    state: directory
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0700'

@@ -1,0 +1,53 @@
+---
+- name: Install packages
+  ansible.builtin.apt:
+    name: '{{ zsh_packages }}'
+    state: present
+
+- name: ~/.config/
+  ansible.builtin.file:
+    name: '/home/{{ dotfiles_user }}/.config'
+    state: directory
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0700'
+
+- name: ~/.config/zsh/
+  ansible.builtin.file:
+    name: '/home/{{ dotfiles_user }}/.config/zsh'
+    state: directory
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0700'
+
+- name: ~/.zshenv
+  ansible.builtin.copy:
+    content: |
+      export ZDOTDIR=/home/{{ dotfiles_user }}/.config/zsh/
+    dest: '/home/{{ dotfiles_user }}/.zshenv'
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0600'
+
+- name: ~/.config/.zshrc
+  ansible.builtin.template:
+    src: zshrc.j2
+    dest: '/home/{{ dotfiles_user }}/.config/zsh/.zshrc'
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0644'
+
+- name: ~/.config/zsh/
+  ansible.builtin.template:
+    src: '{{ item }}'
+    dest: "/home/{{ dotfiles_user }}/.config/zsh/{{ item | basename | replace('.j2', '') }}"
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0644'
+  with_fileglob:
+    - '{{ role_path }}/templates/*.j2'
+
+- name: Ensure default shell is /usr/bin/zsh
+  ansible.builtin.user:
+    name: '{{ dotfiles_user }}'
+    shell: /usr/bin/zsh

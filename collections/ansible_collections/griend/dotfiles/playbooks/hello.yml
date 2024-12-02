@@ -1,0 +1,10 @@
+---
+- name: Hello, World!
+  hosts: all
+  become: false
+  gather_facts: false
+
+  tasks:
+    - name: Hello, World!
+      ansible.builtin.debug:
+        msg: 'Hello, World!'

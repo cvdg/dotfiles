@@ -1,0 +1,4 @@
+---
+ssh_packages:
+  - openssh-client
+  - openssh-server

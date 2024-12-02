@@ -1,0 +1,19 @@
+---
+all:
+  children:
+    pve:
+      hosts:
+        pve01.griend.dev:
+          ansible_host: 192.168.2.243
+        pve02.griend.dev:
+          ansible_host: 192.168.2.244
+    kvm:
+      hosts:
+        dns01.griend.dev:
+          ansible_host: 192.168.2.128
+        proxy01.griend.dev:
+          ansible_host: 192.168.2.129
+        media01.griend.dev:
+          ansible_host: 192.168.2.130
+        backup01.griend.dev:
+          ansible_host: 192.168.2.131

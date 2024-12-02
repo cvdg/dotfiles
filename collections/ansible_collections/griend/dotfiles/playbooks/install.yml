@@ -1,0 +1,18 @@
+---
+- name: Install dotfiles playbook
+  hosts: all
+  become: true
+  gather_facts: true
+
+  vars:
+    dotfiles_user: cees
+    dotfiles_group: cees
+    dotfiles_name: Cees van de Griend
+    dotfiles_email: cees.van.de.griend@griend.eu
+
+  roles:
+    - griend.dotfiles.git
+    - griend.dotfiles.local
+    - griend.dotfiles.ssh
+    - griend.dotfiles.sudo
+    - griend.dotfiles.zsh
