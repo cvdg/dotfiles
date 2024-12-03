@@ -1,6 +1,9 @@
 ---
 zsh_packages:
+  - bat
   - fortunes
+  - fzf
+  - zoxide
   - zsh
   - zsh-autosuggestions
   - zsh-syntax-highlighting

@@ -24,6 +24,14 @@
     var: result
   when: not starship.stat.exists
 
+- name: ~/.config
+  ansible.builtin.file:
+    path: '/home/{{ dotfiles_user }}/.config'
+    state: directory
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0755'
+
 - name: ~/.config/starship.toml
   ansible.builtin.template:
     src: starship.toml.j2
