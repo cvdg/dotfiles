@@ -1,13 +1,22 @@
 ---
-- name: Install dotfiles playbook
+- name: Apt upgrade playbook
   hosts: all
   become: true
-  gather_facts: true
+  gather_facts: false
 
   tasks:
-    - name: Apt autoremove
+    - name: Apt upgrade task
       ansible.builtin.apt:
         upgrade: full
         update_cache: true
         autoremove: true
         autoclean: true
+
+    - name: Check /var/run/reboot-required
+      ansible.builtin.stat:
+        path: /var/run/reboot-required
+      register: reboot_required
+
+    - name: Reboot
+      ansible.builtin.reboot:
+      when: reboot_required.stat.exists

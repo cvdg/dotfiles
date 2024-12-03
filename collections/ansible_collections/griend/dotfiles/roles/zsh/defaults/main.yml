@@ -2,3 +2,5 @@
 zsh_packages:
   - fortunes
   - zsh
+  - zsh-autosuggestions
+  - zsh-syntax-highlighting
