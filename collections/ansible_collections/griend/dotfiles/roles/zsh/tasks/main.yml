@@ -35,7 +35,7 @@
     dest: '/home/{{ dotfiles_user }}/.config/zsh/.zlogin'
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
-    mode: '0644'
+    mode: '0600'
 
 - name: ~/.config/.zlogout
   ansible.builtin.template:
@@ -43,7 +43,7 @@
     dest: '/home/{{ dotfiles_user }}/.config/zsh/.zlogout'
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
-    mode: '0644'
+    mode: '0600'
 
 - name: ~/.config/.zprofile
   ansible.builtin.template:
@@ -51,7 +51,7 @@
     dest: '/home/{{ dotfiles_user }}/.config/zsh/.zprofile'
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
-    mode: '0644'
+    mode: '0600'
 
 - name: ~/.config/.zshenv
   ansible.builtin.template:
@@ -59,7 +59,7 @@
     dest: '/home/{{ dotfiles_user }}/.config/zsh/.zshenv'
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
-    mode: '0644'
+    mode: '0600'
 
 - name: ~/.config/.zshrc
   ansible.builtin.template:
@@ -67,7 +67,7 @@
     dest: '/home/{{ dotfiles_user }}/.config/zsh/.zshrc'
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
-    mode: '0644'
+    mode: '0600'
 
 - name: ~/.config/zsh/
   ansible.builtin.template:
@@ -75,7 +75,7 @@
     dest: "/home/{{ dotfiles_user }}/.config/zsh/{{ item | basename | replace('.j2', '') }}"
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
-    mode: '0644'
+    mode: '0600'
   with_fileglob:
     - '{{ role_path }}/templates/[0123456789][0123456789]-*.zsh.j2'
 

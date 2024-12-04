@@ -14,6 +14,7 @@
     - griend.dotfiles.git
     - griend.dotfiles.hushlogin
     - griend.dotfiles.local
+    - griend.dotfiles.nvim
     - griend.dotfiles.rust
     - griend.dotfiles.ssh
     - griend.dotfiles.starship

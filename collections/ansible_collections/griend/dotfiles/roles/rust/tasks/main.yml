@@ -13,4 +13,16 @@
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
     mode: '0755'
-  notify: Execute installer
+
+- name: Check for ~/.cargo/bin
+  ansible.builtin.stat:
+    path: '/home/{{ dotfiles_user }}/.cargo/bin'
+  register: cargo_bin
+
+- name: Execute installer
+  ansible.builtin.command:
+    cmd: '/tmp/rustup-init.sh -y'
+    creates: '/home/{{ dotfiles_user }}/.cargo/bin'
+  become: true
+  become_user: '{{ dotfiles_user }}'
+  when: not cargo_bin.stat.exists

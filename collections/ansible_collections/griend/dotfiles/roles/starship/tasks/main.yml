@@ -30,7 +30,7 @@
     state: directory
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
-    mode: '0755'
+    mode: '0700'
 
 - name: ~/.config/starship.toml
   ansible.builtin.template:
@@ -38,4 +38,4 @@
     dest: '/home/{{ dotfiles_user }}/.config/starship.toml'
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
-    mode: '0644'
+    mode: '0600'
