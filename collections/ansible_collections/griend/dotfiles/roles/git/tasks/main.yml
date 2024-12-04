@@ -1,9 +1,4 @@
 ---
-- name: Install packages
-  ansible.builtin.apt:
-    name: '{{ git_packages }}'
-    state: present
-
 - name: ~/.gitconfig
   ansible.builtin.template:
     src: gitconfig.j2

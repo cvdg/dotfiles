@@ -1,11 +1,4 @@
 ---
-- name: Remove packages
-  ansible.builtin.apt:
-    name:
-      - rustc
-      - cargo
-    state: absent
-
 - name: Download installer
   ansible.builtin.get_url:
     url: 'https://sh.rustup.rs'

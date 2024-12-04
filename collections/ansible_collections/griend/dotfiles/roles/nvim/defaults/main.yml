@@ -1,6 +1,0 @@
----
-nvim_packages:
-  - neovim
-nvim_version: v0.10.2
-nvim_url: 'https://github.com/neovim/neovim/releases/download/{{ nvim_version }}/nvim-linux64.tar.gz'
-nvim_checksum: 'sha256:9f696e635d503b844e4e78e88a22bcf512a78f288bf471379afc3d0004e15217'

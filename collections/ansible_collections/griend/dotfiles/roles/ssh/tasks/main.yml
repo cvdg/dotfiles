@@ -1,9 +1,4 @@
 ---
-- name: Install packages
-  ansible.builtin.apt:
-    name: '{{ ssh_packages }}'
-    state: present
-
 - name: ~/.ssh/
   ansible.builtin.file:
     name: '/home/{{ dotfiles_user }}/.ssh'
@@ -19,14 +14,6 @@
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
     mode: '0700'
-
-- name: ~/.ssh/authorized_keys
-  ansible.builtin.template:
-    src: authorized_keys.j2
-    dest: '/home/{{ dotfiles_user }}/.ssh/authorized_keys'
-    owner: '{{ dotfiles_user }}'
-    group: '{{ dotfiles_group }}'
-    mode: '0600'
 
 - name: ~/.ssh/config
   ansible.builtin.template:

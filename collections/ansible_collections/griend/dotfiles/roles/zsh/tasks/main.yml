@@ -1,9 +1,4 @@
 ---
-- name: Install packages
-  ansible.builtin.apt:
-    name: '{{ zsh_packages }}'
-    state: present
-
 - name: ~/.config/
   ansible.builtin.file:
     name: '/home/{{ dotfiles_user }}/.config'

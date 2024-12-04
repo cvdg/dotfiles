@@ -1,7 +1,7 @@
 ---
 - name: Install dotfiles playbook
   hosts: all
-  become: true
+  become: false
   gather_facts: true
 
   vars:
@@ -18,6 +18,5 @@
     - griend.dotfiles.rust
     - griend.dotfiles.ssh
     - griend.dotfiles.starship
-    - griend.dotfiles.sudo
     - griend.dotfiles.tmux
     - griend.dotfiles.zsh

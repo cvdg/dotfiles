@@ -17,3 +17,7 @@ all:
           ansible_host: 192.168.2.130
         backup01.griend.dev:
           ansible_host: 192.168.2.131
+        demo01.griend.dev:
+          ansible_host: 192.168.2.132
+        demo02.griend.dev:
+          ansible_host: 192.168.2.133

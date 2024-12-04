@@ -1,9 +1,4 @@
 ---
-- name: Install packages
-  ansible.builtin.apt:
-    name: '{{ starship_packages }}'
-    state: present
-
 - name: Check if starship exists
   ansible.builtin.stat:
     path: '/home/{{ dotfiles_user }}/.cargo/bin/starship'
