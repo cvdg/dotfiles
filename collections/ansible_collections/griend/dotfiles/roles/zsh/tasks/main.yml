@@ -74,7 +74,7 @@
   with_fileglob:
     - '{{ role_path }}/templates/[0123456789][0123456789]-*.zsh.j2'
 
-- name: Ensure default shell is /usr/bin/zsh
-  ansible.builtin.user:
-    name: '{{ dotfiles_user }}'
-    shell: /usr/bin/zsh
+# - name: Ensure default shell is /usr/bin/zsh
+#   ansible.builtin.user:
+#     name: '{{ dotfiles_user }}'
+#     shell: /usr/bin/zsh
