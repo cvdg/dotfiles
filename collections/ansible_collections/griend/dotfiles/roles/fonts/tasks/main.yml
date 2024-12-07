@@ -1,0 +1,24 @@
+---
+- name: Create download directory
+  ansible.builtin.file:
+    name: '{{ item }}'
+    state: directory
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0755'
+  loop:
+    - '/home/{{ dotfiles_group }}/.local/share'
+    - '/home/{{ dotfiles_group }}/.local/share/downloads'
+    - '/home/{{ dotfiles_group }}/.local/share/fonts'
+
+- name: Download nerd fonts
+  ansible.builtin.get_url:
+    url: '{{ fonts_nerd_url }}'
+    dest: '/home/{{ dotfiles_group }}/.local/share/downloads'
+
+- name: Extract nerd fonts
+  ansible.builtin.unarchive:
+    src: '/home/{{ dotfiles_group }}/.local/share/downloads/{{ fonts_nerd_name }}.zip'
+    dest: '/home/{{ dotfiles_group }}/.local/share/fonts'
+  notify: Reload fonts cache
+

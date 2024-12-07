@@ -21,3 +21,4 @@ all:
           ansible_host: 192.168.2.132
         demo02.griend.dev:
           ansible_host: 192.168.2.133
+        workstation01.griend.dev:

@@ -1,0 +1,6 @@
+---
+fonts_nerd_version: 3.3.0
+# fonts_nerd_url: 'https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ fonts_nerd_version }}/JetBrainsMono.zip'
+fonts_nerd_name: FiraCode
+fonts_nerd_url: 'https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ fonts_nerd_version }}/{{ fonts_nerd_name }}.zip'
+
