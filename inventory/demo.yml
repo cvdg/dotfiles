@@ -1,9 +1,0 @@
----
-all:
-  children:
-    kvm:
-      hosts:
-        demo01.griend.dev:
-          ansible_host: 192.168.2.132
-        demo02.griend.dev:
-          ansible_host: 192.168.2.133

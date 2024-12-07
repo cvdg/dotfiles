@@ -4,21 +4,18 @@ all:
     pve:
       hosts:
         pve01.griend.dev:
-          ansible_host: 192.168.2.243
         pve02.griend.dev:
-          ansible_host: 192.168.2.244
     kvm:
       hosts:
         dns01.griend.dev:
-          ansible_host: 192.168.2.128
         proxy01.griend.dev:
-          ansible_host: 192.168.2.129
         media01.griend.dev:
-          ansible_host: 192.168.2.130
         backup01.griend.dev:
-          ansible_host: 192.168.2.131
         demo01.griend.dev:
-          ansible_host: 192.168.2.132
         demo02.griend.dev:
-          ansible_host: 192.168.2.133
         workstation01.griend.dev:
+        workstation02.griend.dev:
+    workstation:
+      hosts:
+        workstation01.griend.dev:
+        workstation02.griend.dev:
