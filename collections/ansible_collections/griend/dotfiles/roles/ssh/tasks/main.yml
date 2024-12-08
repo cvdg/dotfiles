@@ -22,3 +22,21 @@
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
     mode: '0600'
+    
+- name: Copy private ssh keys
+  ansible.builtin.copy:
+    src: id_ed25519
+    dest: '/home/{{ dotfiles_user }}/.ssh/id_ed25519'
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0600'
+  when: dotfiles_ssh_keys
+
+- name: Copy public ssh keys
+  ansible.builtin.copy:
+    src: id_ed25519.pub
+    dest: '/home/{{ dotfiles_user }}/.ssh/id_ed25519.pub'
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0644'
+  when: dotfiles_ssh_keys

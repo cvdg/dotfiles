@@ -5,7 +5,7 @@
     state: directory
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
-    mode: '0755'
+    mode: '0700'
   loop:
     - '/home/{{ dotfiles_user }}/.config'
 
@@ -15,5 +15,5 @@
     dest: '/home/{{ dotfiles_user }}/.config/nvim/'
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
-    directory_mode: '0755'
-    mode: '0644'
+    directory_mode: '0700'
+    mode: '0600'

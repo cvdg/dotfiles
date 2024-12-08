@@ -1,6 +1,6 @@
 ---
 - name: Install workstation playbook
-  hosts: all
+  hosts: workstation
   become: false
   gather_facts: true
 
@@ -22,3 +22,5 @@
     - griend.dotfiles.zsh
 
     - griend.dotfiles.fonts
+    - griend.dotfiles.gnome_desktop
+

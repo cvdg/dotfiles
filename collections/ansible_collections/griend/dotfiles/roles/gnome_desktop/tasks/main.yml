@@ -1,0 +1,26 @@
+---
+- name: Copy walpaper image
+  ansible.builtin.copy:
+    src: wallpaper.jpg
+    dest: '/home/{{ dotfiles_user }}/Pictures/wallpaper.jpg'
+    state: present
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group}}'
+    mode: '0644'
+
+
+- name: Set wallpaper
+  community.general.dconf:
+    key: "/org/gnome/desktop/background/picture-uri"
+    value: "'file:///home/{{ dotfiles_user }}/Pictures/wallpaper.jpg'"
+
+- name: Set wallpaper position
+  community.general.dconf:
+    key: "/org/gnome/desktop/background/picture-options"
+    value: "'zoom'"
+
+- name: Set terminal theme
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/theme-variant"
+    value: "'dark'"
+
