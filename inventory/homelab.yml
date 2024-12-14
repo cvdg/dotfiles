@@ -11,8 +11,10 @@ all:
         proxy01.griend.dev:
         media01.griend.dev:
         backup01.griend.dev:
-        workstation01.griend.dev:
+        demo01.griend.dev:
+        demo02.griend.dev:
+        git01.griend.dev:
+        database01.griend.dev:
     workstation:
       hosts:
-        workstation01.griend.dev:
         workstation02.griend.dev:
