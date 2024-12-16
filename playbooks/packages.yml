@@ -1,6 +1,9 @@
 ---
+#
+# Should be moved to homelab
+#
 - name: Install packages playbook
-  hosts: workstation02.griend.dev
+  hosts: all
   become: true
   gather_facts: true
   
@@ -22,4 +25,3 @@
       community.general.npm:
         name: pyright
         global: true
-

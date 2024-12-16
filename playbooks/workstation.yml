@@ -1,0 +1,16 @@
+---
+- name: Workstation playbook
+  hosts: workstation
+  become: false
+  gather_facts: true
+
+  roles:
+    - fonts
+    - git
+    - gnome_desktop
+    - hushlogin
+    - local
+    - nvim
+    - ssh
+    - tmux
+    - zsh

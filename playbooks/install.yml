@@ -1,0 +1,15 @@
+---
+- name: Install dotfiles playbook
+  hosts: all
+  become: false
+  gather_facts: true
+
+  roles:
+    - backup
+    - git
+    - hushlogin
+    - local
+    - nvim
+    - ssh
+    - tmux
+    - zsh
