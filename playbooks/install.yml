@@ -1,5 +1,5 @@
 ---
-- name: Install dotfiles playbook
+- name: Install playbook
   hosts: all
   become: false
   gather_facts: true
@@ -12,4 +12,5 @@
     - nvim
     - ssh
     - tmux
+    - workstation
     - zsh

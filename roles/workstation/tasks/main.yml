@@ -1,0 +1,9 @@
+---
+- name: Install local scripts
+  ansible.builtin.copy:
+    src:  local/
+    dest: "/home/{{ dotfiles_user }}/.local/bin/"
+    owner: "{{ dotfiles_user }}"
+    group: "{{ dotfiles_group }}"
+    mode: "0700"
+  when: workstation_role

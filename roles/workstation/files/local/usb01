@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# set -ex
+set -e
+
+if [ ! -f /media/cees/usb01/.usb01 ]; then
+  echo "Error: Can not find usb stick usb01"
+  exit 1
+fi
+
+pushd .
+
+if [ -d ~/Documenten ]; then
+  cd ~/Documenten
+elif [ -d ~/Documents ]; then
+  cd ~/Documents
+fi
+
+echo "*** Begin Backup ***"
+
+rsync -avhz \
+  --delete \
+  --exclude '.DS_Store' \
+  *.sh \
+  [0123456789][0123456789][0123456789]_* \
+  /media/cees/usb01/Documents/
+
+echo "*** End Backup ***"
+
+popd
