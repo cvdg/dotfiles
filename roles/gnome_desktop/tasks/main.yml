@@ -1,18 +1,28 @@
 ---
+- name: Create picture direcory
+  ansible.builtin.file:
+    name: "{{ item }}"
+    state: directory
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0700'
+  loop:
+    - '/home/{{ dotfiles_user }}/.config'
+    - '/home/{{ dotfiles_user }}/.config/pictures'
+
 - name: Copy walpaper image
   ansible.builtin.copy:
     src: wallpaper.jpg
-    dest: '/home/{{ dotfiles_user }}/Pictures/wallpaper.jpg'
-    state: present
+    dest: '/home/{{ dotfiles_user }}/.config/pictures/wallpaper.jpg'
     owner: '{{ dotfiles_user }}'
-    group: '{{ dotfiles_group}}'
-    mode: '0644'
+    group: '{{ dotfiles_group }}'
+    mode: '0600'
 
 
 - name: Set wallpaper
   community.general.dconf:
     key: "/org/gnome/desktop/background/picture-uri"
-    value: "'file:///home/{{ dotfiles_user }}/Pictures/wallpaper.jpg'"
+    value: "'file:///home/{{ dotfiles_user }}/.config/pictures/wallpaper.jpg'"
 
 - name: Set wallpaper position
   community.general.dconf:
@@ -23,4 +33,3 @@
   community.general.dconf:
     key: "/org/gnome/terminal/legacy/theme-variant"
     value: "'dark'"
-

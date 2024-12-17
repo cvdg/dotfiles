@@ -1,7 +1,25 @@
 ---
+- name: Create workstaion directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ dotfiles_user }}"
+    group: "{{ dotfiles_group }}"
+    mode: "0700"
+  loop:
+    - "/home/{{ dotfiles_user }}/Desktop"
+    - "/home/{{ dotfiles_user }}/Documents"
+    - "/home/{{ dotfiles_user }}/Downloads"
+    - "/home/{{ dotfiles_user }}/Music"
+    - "/home/{{ dotfiles_user }}/Pictures"
+    - "/home/{{ dotfiles_user }}/Public"
+    - "/home/{{ dotfiles_user }}/Templates"
+    - "/home/{{ dotfiles_user }}/Videos"
+  when: workstation_role
+
 - name: Install local scripts
   ansible.builtin.copy:
-    src:  local/
+    src: local/
     dest: "/home/{{ dotfiles_user }}/.local/bin/"
     owner: "{{ dotfiles_user }}"
     group: "{{ dotfiles_group }}"
