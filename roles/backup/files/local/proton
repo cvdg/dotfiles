@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+rclone sync -v /srv/backup/Documents proton:Documenten

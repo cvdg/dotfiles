@@ -16,3 +16,12 @@
     group: "{{ dotfiles_group }}"
     mode: "0700"
   when: backup_role
+
+- name: Copy scripts
+  ansible.builtin.copy:
+    src: local/
+    dest: "/home/{{ dotfiles_user }}/.local/bin/"
+    owner: "{{ dotfiles_user }}"
+    group: "{{ dotfiles_group }}"
+    mode: "0700"
+  when: backup_role
