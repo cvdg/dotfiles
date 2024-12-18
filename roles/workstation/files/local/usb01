@@ -3,28 +3,23 @@
 # set -ex
 set -e
 
-if [ ! -f /media/cees/usb01/.usb01 ]; then
+# Search for usb01
+blkid | grep -s 'UUID="F6AD-326B"'
+FOUND=$?
+
+if [ ${FOUND} -eq 1 ]; then
   echo "Error: Can not find usb stick usb01"
   exit 1
 fi
 
-pushd .
-
-if [ -d ~/Documenten ]; then
-  cd ~/Documenten
-elif [ -d ~/Documents ]; then
-  cd ~/Documents
+if [ -d "${HOME}/Documenten" ]; then
+  SRC="${HOME}/Documenten"
+elif [ -d "${HOME}/Documents" ]; then
+  SRC="${HOME}/Documents"
 fi
-
-echo "*** Begin Backup ***"
 
 rsync -avhz \
   --delete \
   --exclude '.DS_Store' \
-  *.sh \
-  [0123456789][0123456789][0123456789]_* \
-  /media/cees/usb01/Documents/
-
-echo "*** End Backup ***"
-
-popd
+  ${SRC}/[0123456789][0123456789][0123456789]_* \
+  /media/cees/USB01/Documents/
