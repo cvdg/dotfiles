@@ -11,15 +11,9 @@
     - name: Install packages task
       ansible.builtin.apt:
         name:
-          - ansible
-          - h
-          - htop
-          - lsd
           - npm
           - pipx
-          - postgresql-client
           - python3-psutil
-          - rsync
         state: present
 
     - name: Install NPM packages task

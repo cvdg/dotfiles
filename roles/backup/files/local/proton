@@ -2,4 +2,11 @@
 
 set -e
 
-rclone sync -v /srv/backup/Documents proton:Documenten
+read -p "2FA: " CODE
+
+rclone sync \
+  --verbose \
+  --protondrive-2fa ${CODE} \
+  --protondrive-enable-caching \
+  /srv/backup/Documents \
+  proton:Documenten
