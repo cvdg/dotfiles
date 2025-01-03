@@ -5,12 +5,35 @@
   gather_facts: true
 
   roles:
-    - backup
-    - git
-    - hushlogin
-    - local
-    - nvim
-    - ssh
-    - tmux
-    - workstation
-    - zsh
+    - role: backup
+      tags: backup
+
+    - role: fonts
+      tags: fonts
+
+    - role: git
+      tags: git
+
+    - role: gnome_desktop
+      tags: gnome_desktop
+
+    - role: hushlogin
+      tags: hushlogin
+
+    - role: local
+      tags: local
+
+    - role: nvim
+      tags: nvim
+
+    - role: ssh
+      tags: ssh
+
+    - role: tmux
+      tags: tmux
+
+    - role: workstation
+      tags: workstation
+
+    - role: zsh
+      tags: zsh

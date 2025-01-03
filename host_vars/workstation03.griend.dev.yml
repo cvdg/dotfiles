@@ -1,0 +1,4 @@
+---
+ansible_host: 192.168.2.54
+dotfiles_ssh_keys: true
+workstation_role: true
