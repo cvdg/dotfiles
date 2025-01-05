@@ -15,10 +15,13 @@
   ansible.builtin.get_url:
     url: '{{ fonts_nerd_url }}'
     dest: '/home/{{ dotfiles_group }}/.local/share/downloads'
+    owner: '{{ dotfiles_user }}'
+    group: '{{ dotfiles_group }}'
+    mode: '0644'
 
 - name: Extract nerd fonts
   ansible.builtin.unarchive:
     src: '/home/{{ dotfiles_group }}/.local/share/downloads/{{ fonts_nerd_name }}.zip'
     dest: '/home/{{ dotfiles_group }}/.local/share/fonts'
+    remote_src: true
   notify: Reload fonts cache
-

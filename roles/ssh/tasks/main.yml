@@ -22,7 +22,7 @@
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
     mode: '0600'
-    
+  
 - name: Copy private ssh keys
   ansible.builtin.copy:
     src: id_ed25519
