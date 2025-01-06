@@ -9,6 +9,7 @@
   loop:
     - '/home/{{ dotfiles_user }}/.config'
     - '/home/{{ dotfiles_user }}/.config/pictures'
+  when: gnome_desktop_role
 
 - name: Copy walpaper image
   ansible.builtin.copy:
@@ -17,19 +18,22 @@
     owner: '{{ dotfiles_user }}'
     group: '{{ dotfiles_group }}'
     mode: '0600'
-
+  when: gnome_desktop_role
 
 - name: Set wallpaper
   community.general.dconf:
     key: "/org/gnome/desktop/background/picture-uri"
     value: "'file:///home/{{ dotfiles_user }}/.config/pictures/wallpaper.jpg'"
+  when: gnome_desktop_role
 
 - name: Set wallpaper position
   community.general.dconf:
     key: "/org/gnome/desktop/background/picture-options"
     value: "'zoom'"
+  when: gnome_desktop_role
 
 - name: Set terminal theme
   community.general.dconf:
     key: "/org/gnome/terminal/legacy/theme-variant"
     value: "'dark'"
+  when: gnome_desktop_role
