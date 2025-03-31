@@ -1,0 +1,25 @@
+---
+- name: Common directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+  with_items:
+    - "{{ ansible_user_dir }}/.local"
+    - "{{ ansible_user_dir }}/.local/bin"
+    - "{{ ansible_user_dir }}/.local/tmp"
+
+- name: Nederlandse directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+  with_items:
+    - "{{ ansible_user_dir }}/Afbeeldingen"
+    - "{{ ansible_user_dir }}/Bureaublad"
+    - "{{ ansible_user_dir }}/Documenten"
+    - "{{ ansible_user_dir }}/Downloads"
+    - "{{ ansible_user_dir }}/Muziek"
+    - "{{ ansible_user_dir }}/Openbaar"
+    - "{{ ansible_user_dir }}/Sjablonen"
+    - "{{ ansible_user_dir }}/Video's"

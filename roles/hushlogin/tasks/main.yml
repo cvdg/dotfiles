@@ -1,8 +1,0 @@
----
-- name: Create ~/.hushlogin
-  ansible.builtin.copy:
-    content: ''
-    dest: '/home/{{ dotfiles_user }}/.hushlogin'
-    owner: '{{ dotfiles_user }}'
-    group: '{{ dotfiles_group }}'
-    mode: '0644'

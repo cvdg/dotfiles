@@ -1,26 +1,5 @@
 ---
-all:
-  children:
-    pve:
-      hosts:
-        pve01.griend.dev:
-        pve02.griend.dev:
-    raspi:
-      hosts:
-        workstation03.griend.dev:
-    kvm:
-      hosts:
-        dns01.griend.dev:
-        proxy01.griend.dev:
-        media01.griend.dev:
-        backup01.griend.dev:
-        demo01.griend.dev:
-        demo02.griend.dev:
-        git01.griend.dev:
-        database01.griend.dev:
-        workstation01.griend.dev:
-    workstation:
-      hosts:
-        workstation01.griend.dev:
-        workstation02.griend.dev:
-        workstation03.griend.dev:
+hosts:
+  localhost:
+  vars:
+    ansible_connection: local

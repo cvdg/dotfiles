@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-
-HOST=nas01.griend.dev
-
-rsync -avhz \
-  /srv/backup/Documents \
-  "${HOST}:~/Documenten"

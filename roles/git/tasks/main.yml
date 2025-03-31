@@ -1,8 +1,0 @@
----
-- name: ~/.gitconfig
-  ansible.builtin.template:
-    src: gitconfig.j2
-    dest: '/home/{{ dotfiles_user }}/.gitconfig'
-    owner: '{{ dotfiles_user }}'
-    group: '{{ dotfiles_group }}'
-    mode: '0600'
