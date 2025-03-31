@@ -6,3 +6,9 @@
   roles:
     - role: common
       tags: common
+
+    - role: bin
+      tags: bin
+
+    - role: zsh
+      tags: zsh

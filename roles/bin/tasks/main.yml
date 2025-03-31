@@ -1,0 +1,8 @@
+---
+- name: bin ~/.local/bin/
+  ansible.builtin.template:
+    src: '{{ item }}'
+    dest: "{{ ansible_user_dir }}/.local/bin/{{ item | basename | replace('.j2', '') }}"
+    mode: '0755'
+  with_fileglob:
+    - '{{ role_path }}/templates/*.j2'

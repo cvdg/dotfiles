@@ -1,0 +1,12 @@
+# Only unique paths
+typeset -U -g PATH path
+
+#
+# Minimal path
+#
+path=( /usr/local/bin /usr/bin /bin )
+path=( ${path} /usr/local/games /usr/games )
+path=( ~/.local/bin ${path} )
+
+export PATH
+export path

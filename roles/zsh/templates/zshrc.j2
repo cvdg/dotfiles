@@ -1,0 +1,16 @@
+export ZSH_DEBUG=${ZSH_DEBUG:-0}
+
+if [ ${ZSH_DEBUG} -gt 0 ] ; then
+    echo "+++ .zshrc"
+fi
+
+export ZSH_DEBUG=${ZSH_DEBUG:-0}
+
+for Z in ${ZDOTDIR}/[0123456789][0123456789]-*.zsh ; do
+    if [ -f ${Z} ] ; then
+        if [ ${ZSH_DEBUG} -gt 0 ] ; then
+            echo "Source: ${Z}"
+        fi
+        source ${Z}
+    fi
+done

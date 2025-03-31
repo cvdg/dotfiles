@@ -1,0 +1,27 @@
+---
+- name: zsh directory
+  ansible.builtin.file:
+    path:  "{{ ansible_user_dir }}/.local/zsh"
+    state: directory
+    mode: "0755"
+
+- name: ~/.zshenv
+  ansible.builtin.copy:
+    content: |
+      export ZDOTDIR={{ ansible_user_dir }}/.local/zsh/
+    dest: "{{ ansible_user_dir }}/.zshenv"
+    mode: "0644"
+
+- name: ~/.local/zsh/.zshrc
+  ansible.builtin.template:
+    src: zshrc.j2
+    dest: "{{ ansible_user_dir }}/.local/zsh/.zshrc"
+    mode: "0644"
+
+- name: Templates ~/.local/zsh/
+  ansible.builtin.template:
+    src: "{{ item }}"
+    dest: "{{ ansible_user_dir }}/.local/zsh/{{ item | basename | replace('.j2', '') }}"
+    mode: '0600'
+  with_fileglob:
+    - "{{ role_path }}/templates/[0123456789][0123456789]-*.zsh.j2"
