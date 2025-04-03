@@ -7,11 +7,14 @@
     - role: common
       tags: common
 
+    - role: bin
+      tags: bin
+
     - role: git
       tags: git
 
-    - role: bin
-      tags: bin
+    - role: ssh
+      tags: ssh
 
     - role: zsh
       tags: zsh
