@@ -1,0 +1,6 @@
+---
+- name: vim ~/.vimrc
+  ansible.builtin.template:
+    src: vimrc.j2
+    dest: "{{ ansible_user_dir }}/.vimrc"
+    mode: '0600'

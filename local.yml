@@ -16,5 +16,8 @@
     - role: ssh
       tags: ssh
 
+    - role: vim
+      tags: vim
+
     - role: zsh
       tags: zsh
