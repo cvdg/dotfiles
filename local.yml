@@ -7,6 +7,9 @@
     - role: common
       tags: common
 
+    - role: git
+      tags: git
+
     - role: bin
       tags: bin
 
